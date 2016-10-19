@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope) {
+app.controller('MainController', function($scope, $http) {
   $scope.view = {}
   $scope.view.greeting = "Hello World"
 });

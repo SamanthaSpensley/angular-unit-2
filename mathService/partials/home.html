@@ -1,0 +1,31 @@
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+  <h1>Mini Calculator!</h1>
+  <div>
+
+  </div>
+
+  <div>
+    <form ng-submit="calculate()" name=calc>
+
+      <label for="operation">Operation:</label>
+      <select id="operation" ng-model="view.operator" ng-init="view.operator = 'add'" class="form-control">
+        <option value="add">add</option>
+        <option value="sub">subtract</option>
+        <option value="mult">multiply</option>
+        <option value="div">divide</option>
+        <option value="power">power</option>
+      </select>
+
+      <label for="firstNum">First Number:</label>
+      <input type="number" ng-model="view.firstNum" class="form-control"/>
+      <label for="secondNum">Second Number:</label>
+      <input type="number" ng-model="view.secondNum" class="form-control"/>
+      <input type="submit" class="btn btn-primary" value="Calculate!"/>
+    </form>
+  </div>
+
+
+  <div class="result">
+    <h3>The value is: {{ view.result }}</h3>
+  </div>
+</div>

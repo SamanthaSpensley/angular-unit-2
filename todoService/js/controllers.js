@@ -1,17 +1,25 @@
-app.controller('todoController', function($scope, $route, todoService) {
+angular.module('todoApp')
+.controller('TodoContoller', function($scope, $route, TodoService) {
   $scope.view = {};
-  $scope.view.list = todoService.list
+  $scope.view.list = TodoService.list;
 
-  $scope.addTodo = function(form) {
-    var input = $scope.view.newTodo
-    todoService.add(input);
-    form.$setPristine();
-    $scope.view.newTodo = '';
+  // add, edit, remove item
+  $scope.addTodo = function(input) {
+    var input = $scope.view.newTodo;
+    TodoService.add(input);
   };
 
-  $scope.removeTodo = function(item) {
-    todoService.remove(item)
-    // var index = $scope.view.list.indexOf(item)
-    // $scope.view.list.splice(index, 1)
+  $scope.editTodo = function(index) {
+    var input = $scope.view.edit[index];
+    TodoService.edit(index, input)
   }
+
+  $scope.removeTodo = function(index) {
+    TodoService.remove(index);
+  };
+
+  // show/hide form
+  $scope.toggleEditForm = function(item) {
+    item.viewEdit = !item.viewEdit
+  };
 })

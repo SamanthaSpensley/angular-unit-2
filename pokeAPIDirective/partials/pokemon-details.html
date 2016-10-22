@@ -1,0 +1,5 @@
+<h1>Pokemon:</h1>
+<div ng-repeat="poke in view.results">
+  <h3><strong>Name: </strong>{{ poke.data.name }}</h3>
+  <h4><strong>Abilities: </strong>{{ poke.data.abilities[0].ability.name }}</h4>
+</div>
